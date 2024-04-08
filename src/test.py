@@ -59,9 +59,18 @@ def bayer_id(img):
 
 bayer_pattern = bayer_id(img)
 
-
 # 1.1.e White Balancing
 def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
+    # # rewrite so the pattern is just
+    # g0=1-(pattern=='grbg' or pattern=='gbrg')
+    # g1=g0
+    # then use 1-g0, 1-g1
+    # b0=(pattern=='gbrg' or pattern=='bggr')
+    # b1=(pattern=='gbrg' or pattern=='bggr')
+    # r0=1-b0
+    # r1=1-b1
+
+
     if method=='gray':
 
         TO DO: Check Greens only count once
@@ -83,13 +92,16 @@ def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
             b_mean=img[1::2, 1::2].mean()
 
         rgb_weights=[r_mean, r_mean/g_mean, r_mean/b_mean]
+        print('White balance using gray world assumption')
     elif method=='white':
         TO DO 
         Calculate Weights
-
+        print('White balance using white world assumption')
     elif method=='presets': # camera presets
         print('White balance using presets')
         
+
+    # Reweight 
     # Set Greens
     if pattern=='gbrg' or pattern=='grbg':
         img[0::2, 0::2]*=rgb_weights[1]
@@ -97,7 +109,6 @@ def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
     else:
         img[1::2, 0::2]*=rgb_weights[1]
         img[0::2, 1::2]*=rgb_weights[1]
-    
     # Set Reds and Blues
     if pattern=='grbg':
         img[0::2, 1::2]*=rgb_weights[0]
