@@ -248,14 +248,14 @@ for wb_method in wb_methods:
 
             return rgb_img
 
-        dms=True
+        dms=False
         if dms:
             img = demosaic(img, bayer_pattern)
             np.save("../demosaiced", img)
 
         img=np.load("../demosaiced.npy")
 
-        img=white_balance_postmosaic(img, method=wb_method, rgb_weights=[r_scale, g_scale, b_scale], coordinates=manual_coordinates)
+        img=white_balance_postmosaic(img, method=wb_method, rgb_weights=[r_scale, g_scale, b_scale], coordinates=coordinate)
 
 
 
@@ -270,7 +270,7 @@ for wb_method in wb_methods:
             rgb2cam = np.linalg.inv(rgb2cam)
 
             for i in range(img.shape[0]):
-                print(i)
+                # print(i)
                 for j in range(img.shape[1]):
                     rgb=np.expand_dims(img[i,j], axis=1)
                     img[i,j]=np.matmul(rgb2cam, rgb).T
@@ -301,7 +301,7 @@ for wb_method in wb_methods:
                 for j in range(img.shape[1]):
                     for c in range(3):
                         if img[i,j,c] <= 0.0031308:
-                            img[i,j,c]*12.92
+                            img[i,j,c]*=12.92
                         else:
                             img[i,j,c]=(1+0.055)*(img[i,j,c]**(1/2.4))-0.055   
 
