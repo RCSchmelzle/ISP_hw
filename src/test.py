@@ -6,7 +6,7 @@ import numpy as np
 
 # Config
 img_path='data/baby.tiff'
-wb_method='preset' # White Balance method: gray, white, preset
+wb_method='white' # White Balance method: gray, white, preset
 
 # 1.1.a Reconnaissance run
 black=0
@@ -96,7 +96,7 @@ def white_balance_premosaic(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 
 
     return img
 
-def white_balance_postmosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
+def white_balance_postmosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0], coordinates=None):
    
 
     if method=='gray':
@@ -107,9 +107,12 @@ def white_balance_postmosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
         rgb_weights=[r_mean, r_mean/g_mean, r_mean/b_mean]
         print('White balance using gray world assumption')
     elif method=='white':
-        print('TODO')
-    #     TO DO 
-    #     Calculate Weights
+        if coordinates != None:
+            white=img[coordinates[0], coordinates[1]]
+        else: 
+            white=img[np.unravel_index(np.argmax(img.sum(axis=2)), img.shape[:2])]
+        
+        rgb_weights=[1/white[0], 1/white[1], 1/white[2]]
         print('White balance using white world assumption')
     elif method=='presets': # camera presets
         print('White balance using presets')
@@ -126,8 +129,8 @@ def white_balance_postmosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
 
 
 # 1.1.f Demosaicing
-def channel_interp(array, threshold): # Interp2d was deprecated so followed this tutorial
-    array[array<0] = np.nan
+def channel_interp(array, threshold=0): # Interp2d was deprecated so followed this tutorial
+    array[array<threshold] = np.nan
     for i in range(array.shape[0]):
         if np.all(np.isnan(array[i])):
             continue
@@ -224,28 +227,11 @@ def demosaic(img, pattern):
     g_channel=channel_interp(g_channel, 0.0)
     b_channel=channel_interp(b_channel, 0.0)
     rgb_img = np.zeros((r_channel.shape[0], r_channel.shape[1], 3))
+
     rgb_img[:,:,0]=r_channel
     rgb_img[:,:,1]=g_channel
     rgb_img[:,:,2]=b_channel
 
-
-
-    
-
-
-    #     rx=np.arange(0, img.shape[1], 2)
-    #     ry=np.arange(0, img.shape[0], 2)
-    #     f=scipy.interp2d(rx, ry, img[0::2, 0::2], kind='bilinear')
-    #     r_channel=f(np.arange(0, img.shape[1], 1), np.arange(0, img.shape[1], 1))
-
-    #     # b_channel[1::2, 1::2]=img[1::2, 1::2]
-    #     rx=np.arange(1, img.shape[1], 2)
-    #     ry=np.arange(1, img.shape[0], 2)
-    #     f=scipy.interp2d(rx, ry, img[1::2, 1::2], kind='bilinear')
-    #     b_channel=f(np.arange(0, img.shape[1], 1), np.arange(0, img.shape[1], 1))
-
-    # img=np.array((img.shape[0], img.shape[1], 3), dtype=img.dtype)
- 
     return rgb_img
 
 dms=False
@@ -260,12 +246,54 @@ img=white_balance_postmosaic(img, method=wb_method, rgb_weights=[r_scale, g_scal
 
 
 
-plt.imsave("../image.png", np.clip(img,0,1))
 
 
-def color_space_correction(img):
+def color_space_correction(img, xyz2cam,rgb2xyz):
+    rgb2cam=np.matmul(xyz2cam, rgb2xyz)
+    for row in range(rgb2cam.shape[0]):
+        rgb2cam[row]/=rgb2cam[row].sum()
+
+    rgb2cam = np.linalg.inv(rgb2cam)
+
+    for i in range(img.shape[0]):
+        print(i)
+        for j in range(img.shape[1]):
+            rgb=np.expand_dims(img[i,j], axis=1)
+            img[i,j]=np.matmul(rgb2cam, rgb).T
+    return img
+
+
+rgb2xyz = np.array([[0.4124564, 0.3575761, 0.1804375],
+                    [0.2126729, 0.7151522, 0.0721750],
+                    [0.0193339, 0.1191920, 0.9503041]])
+xyz2cam = np.array([6988,-1384,-714,-5631,13410,2447,-1485,2204,7318]).reshape(3, 3, order='C')/10000
+
+
+csc=True
+if csc:
+    img=color_space_correction(img, xyz2cam,rgb2xyz)
+    np.save("../colorcorrected", img)
+
+img=np.load("../colorcorrected.npy")
+
+
+def brightness_adj(img, target_mean=0.5):
+    # Linear Scaling
+    scale=target_mean/skimage.color.rgb2gray(img).mean()
+    img*=scale
+    img=np.clip(img, 0,1)
+
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
-            np.expand_dims(img[0,0], axis=1)
+            for c in range(3):
+                if img[i,j,c] <= 0.0031308:
+                    img[i,j,c]*12.92
+                else:
+                    img[i,j,c]=(1+0.055)*(img[i,j,c]**(1/2.4))-0.055   
 
-print('here')
+
+    return img
+img=brightness_adj(img, target_mean=0.55)
+
+skimage.io.imsave("../image.png", img)
+skimage.io.imsave('../image.jpg', img)
