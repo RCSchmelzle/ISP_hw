@@ -6,14 +6,14 @@ import numpy as np
 
 # Config
 img_path='data/baby.tiff'
-wb_method='gray' # White Balance method: gray, white, preset
+wb_method='preset' # White Balance method: gray, white, preset
 
 # 1.1.a Reconnaissance run
-black = 0
-white = 16383
-r_scale: 1.628906
-g_scale: 1.000000
-b_scale: 1.386719
+black=0
+white=16383
+r_scale=1.628906
+g_scale=1.000000
+b_scale=1.386719
 
 # 1.1.b Identify the Python Initials
 
@@ -73,7 +73,7 @@ def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
 
     if method=='gray':
 
-        TO DO: Check Greens only count once
+        # TO DO: Check Greens only count once
         if pattern=='gbrg' or pattern=='grbg':
             g_mean=(img[0::2, 0::2].mean() + img[1::2, 1::2].mean())/2
         else:
@@ -93,9 +93,9 @@ def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
 
         rgb_weights=[r_mean, r_mean/g_mean, r_mean/b_mean]
         print('White balance using gray world assumption')
-    elif method=='white':
-        TO DO 
-        Calculate Weights
+    # elif method=='white':
+    #     TO DO 
+    #     Calculate Weights
         print('White balance using white world assumption')
     elif method=='presets': # camera presets
         print('White balance using presets')
@@ -123,5 +123,69 @@ def white_balance(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
         img[0::2, 0::2]*=rgb_weights[0]
         img[1::2, 1::2]*=rgb_weights[2]
 
-white_balance(img, bayer_pattern, method=wb_method, \
+    return img
+
+img=white_balance(img, bayer_pattern, method=wb_method, \
                rgb_weights=[r_scale, g_scale, b_scale])
+
+
+# 1.1.f Demosaicing
+def demosaic(img, pattern):
+    r_channel = np.full(img.shape, -1, img.dtype)
+    g_channel = np.full(img.shape, -1, img.dtype)
+    b_channel = np.full(img.shape, -1, img.dtype)
+
+    if pattern=='gbrg' or pattern=='grbg':
+        g1=0
+        g2=0
+        g3=1
+        g4=1
+    else:
+        g1=1
+        g2=0
+        g3=0
+        g4=1
+
+    g_channel[g1::2, g2::2]=img[g1::2, g2::2]
+    g_channel[g3::2, g4::2]=img[g3::2, g4::2]
+    # Set Reds and Blues
+    if pattern=='grbg':
+        r1=0
+        r2=1
+        b1=1
+        b2=0
+    elif pattern=='gbrg':
+        r1=1
+        r2=0
+        b1=0
+        b2=1
+    elif pattern=='bggr':
+        r1=1
+        r2=1
+        b1=0
+        b2=0
+    elif pattern=='rggb':
+        r1=0
+        r2=0
+        b1=1
+        b2=1
+    r_channel[r1::2, r2::2]=img[r1::2, r2::2]
+    b_channel[b1::2, b2::2]=img[b1::2, b2::2]
+
+
+        rx=np.arange(0, img.shape[1], 2)
+        ry=np.arange(0, img.shape[0], 2)
+        f=scipy.interp2d(rx, ry, img[0::2, 0::2], kind='bilinear')
+        r_channel=f(np.arange(0, img.shape[1], 1), np.arange(0, img.shape[1], 1))
+
+        # b_channel[1::2, 1::2]=img[1::2, 1::2]
+        rx=np.arange(1, img.shape[1], 2)
+        ry=np.arange(1, img.shape[0], 2)
+        f=scipy.interp2d(rx, ry, img[1::2, 1::2], kind='bilinear')
+        b_channel=f(np.arange(0, img.shape[1], 1), np.arange(0, img.shape[1], 1))
+
+    img=np.array((img.shape[0], img.shape[1], 3), dtype=img.dtype)
+ 
+    return img
+
+img = demosaic(img, bayer_pattern)
