@@ -1,0 +1,609 @@
+Performing C SOURCE FILE Test JAS_HAVE_FSANITIZE_LEAK failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7529a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D JAS_HAVE_FSANITIZE_LEAK /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7529a.dir\Debug\\" /Fd"cmTC_7529a.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -fsanitize=leak C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c
+cl : command line  warning D9002: ignoring unknown option '-fsanitize=leak' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_7529a.vcxproj]
+  cmTC_7529a.vcxproj -> C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_7529a.exe
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test JAS_HAVE_FSANITIZE_UNDEFINED failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ddc0d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D JAS_HAVE_FSANITIZE_UNDEFINED /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ddc0d.dir\Debug\\" /Fd"cmTC_ddc0d.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -fsanitize=undefined C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c
+cl : command line  warning D9002: ignoring unknown option '-fsanitize=undefined' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ddc0d.vcxproj]
+  cmTC_ddc0d.vcxproj -> C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_ddc0d.exe
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if files unistd.h exist failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a335e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  JAS_HAVE_UNISTD_H.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_a335e.dir\Debug\\" /Fd"cmTC_a335e.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_UNISTD_H.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_UNISTD_H.c(2,1): fatal  error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_a335e.vcxproj]
+
+
+Source:
+/* */
+#include <unistd.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/time.h exist failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f0c99.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  JAS_HAVE_SYS_TIME_H.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_SYS_TIME_H.c(2,1): fatal  error C1083: Cannot open include file: 'sys/time.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_f0c99.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_f0c99.dir\Debug\\" /Fd"cmTC_f0c99.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_SYS_TIME_H.c
+
+
+Source:
+/* */
+#include <sys/time.h>
+
+
+int main(void){return 0;}
+
+Determining size of max_align_t failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_47d7d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  MAX_ALIGN_T.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_47d7d.dir\Debug\\" /Fd"cmTC_47d7d.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c(29,12): error C2065: 'max_align_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_47d7d.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c(30,12): error C2065: 'max_align_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_47d7d.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c(31,12): error C2065: 'max_align_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_47d7d.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c(32,12): error C2065: 'max_align_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_47d7d.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\MAX_ALIGN_T.c(33,12): error C2065: 'max_align_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_47d7d.vcxproj]
+
+
+C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CheckTypeSize/MAX_ALIGN_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(max_align_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of ssize_t failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_35782.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  jas_check_type_name_result.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(29,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_35782.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(30,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_35782.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(31,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_35782.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(32,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_35782.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(33,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_35782.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_35782.dir\Debug\\" /Fd"cmTC_35782.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c
+
+
+C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CheckTypeSize/jas_check_type_name_result.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(ssize_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of __int128_t failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1fc89.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  jas_check_type_name_result.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(29,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1fc89.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(30,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1fc89.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(31,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1fc89.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(32,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1fc89.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(33,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1fc89.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_1fc89.dir\Debug\\" /Fd"cmTC_1fc89.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c
+
+
+C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CheckTypeSize/jas_check_type_name_result.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int128_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function nanosleep exists failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_642be.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=nanosleep /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_642be.dir\Debug\\" /Fd"cmTC_642be.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol nanosleep referenced in function main [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_642be.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_642be.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_642be.vcxproj]
+
+
+
+Determining if the function gettimeofday exists failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4bc69.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=gettimeofday /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_4bc69.dir\Debug\\" /Fd"cmTC_4bc69.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol gettimeofday referenced in function main [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_4bc69.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_4bc69.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_4bc69.vcxproj]
+
+
+
+Determining if the function getrusage exists failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_390ad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getrusage /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_390ad.dir\Debug\\" /Fd"cmTC_390ad.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol getrusage referenced in function main [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_390ad.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_390ad.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_390ad.vcxproj]
+
+
+
+Determining if the function mkostemp exists failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7f104.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=mkostemp /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_7f104.dir\Debug\\" /Fd"cmTC_7f104.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol mkostemp referenced in function main [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_7f104.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\Debug\cmTC_7f104.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_7f104.vcxproj]
+
+
+
+Performing C SOURCE FILE Test JAS_TRY_COMPILE_C11_THREADS failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_6ba31.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D JAS_TRY_COMPILE_C11_THREADS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_6ba31.dir\Debug\\" /Fd"cmTC_6ba31.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(2,1): fatal  error C1083: Cannot open include file: 'threads.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_6ba31.vcxproj]
+
+
+Source file was:
+
+	#include <threads.h>
+	#include <stdatomic.h>
+	int main() {
+		thrd_t thread;
+		mtx_t mutex;
+		tss_t tss;
+	}
+	
+Determining if files pthread.h exist failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cbafd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  JAS_HAVE_PTHREAD_H.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_cbafd.dir\Debug\\" /Fd"cmTC_cbafd.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_PTHREAD_H.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_PTHREAD_H.c(2,1): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_cbafd.vcxproj]
+
+
+Source:
+/* */
+#include <pthread.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_8bf0a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_8bf0a.dir\Debug\\" /Fd"cmTC_8bf0a.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,1): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_8bf0a.vcxproj]
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_29b71.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_29b71.dir\Debug\\" /Fd"cmTC_29b71.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_29b71.vcxproj]
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1d49f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_1d49f.dir\Debug\\" /Fd"cmTC_1d49f.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_1d49f.vcxproj]
+
+
+
+Determining if files libheif/heif.h exist failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_27590.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  JAS_HAVE_HEIF_H.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_HEIF_H.c(2,1): fatal  error C1083: Cannot open include file: 'libheif/heif.h': No such file or directory [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_27590.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /IC:\Users\rcsch\anaconda3\envs\ISP_hw\Library\include /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_27590.dir\Debug\\" /Fd"cmTC_27590.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckIncludeFiles\JAS_HAVE_HEIF_H.c
+
+
+Source:
+/* */
+#include <libheif/heif.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ee2e6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  src.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,15): error C2143: syntax error: missing ')' before '(' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,30): error C2059: syntax error: ')' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,31): error C2059: syntax error: ')' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,33): error C2143: syntax error: missing ')' before 'type' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,1): error C2091: function returns function [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,37): error C2085: 'somefunc': not in formal parameter list [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c(1,48): error C2143: syntax error: missing ';' before '{' [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_ee2e6.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /IC:\Users\rcsch\anaconda3\envs\ISP_hw\Library\include /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_ee2e6.dir\Debug\\" /Fd"cmTC_ee2e6.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\src.c
+
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}
+Determining size of ssize_t failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_86a35.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  jas_check_type_name_result.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(29,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_86a35.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(30,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_86a35.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(31,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_86a35.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(32,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_86a35.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(33,12): error C2065: 'ssize_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_86a35.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_86a35.dir\Debug\\" /Fd"cmTC_86a35.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c
+
+
+C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CheckTypeSize/jas_check_type_name_result.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(ssize_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of __int128_t failed with the following output:
+Change Dir: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_83616.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.2+d6990bcfa for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+  jas_check_type_name_result.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c11 /Fo"cmTC_83616.dir\Debug\\" /Fd"cmTC_83616.dir\Debug\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(29,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_83616.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(30,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_83616.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(31,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_83616.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(32,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_83616.vcxproj]
+C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CheckTypeSize\jas_check_type_name_result.c(33,12): error C2065: '__int128_t': undeclared identifier [C:\Users\rcsch\OneDrive\Desktop\ISP_homework\ISP_hw\jasper_build\CMakeFiles\CMakeTmp\cmTC_83616.vcxproj]
+
+
+C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/CMakeFiles/CheckTypeSize/jas_check_type_name_result.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int128_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+

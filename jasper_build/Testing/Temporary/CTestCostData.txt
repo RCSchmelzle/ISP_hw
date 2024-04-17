@@ -1,0 +1,13 @@
+run_test_imginfo 0 0
+run_test_imgcmp 0 0
+run_test_1 0 0
+run_test_2 0 0
+run_test_3 0 0
+run_test_5 0 0
+---
+run_test_imginfo
+run_test_imgcmp
+run_test_1
+run_test_2
+run_test_3
+run_test_5

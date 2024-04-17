@@ -20,8 +20,8 @@ wb_methods=['white', 'gray', 'preset']
 
 for wb_method in wb_methods:
 # Row, Column white balance manual coordinates
-    if wb_method=='white':
-        manual_coordinates=[ None,
+    if wb_method=='manual':
+        manual_coordinates=[ 
         [190, 3279], # Window Glare
         [420, 3658], # Window Glare
         [1082, 2442],# Baby Eye
@@ -61,21 +61,30 @@ for wb_method in wb_methods:
         def bayer_id(img):
             # Given that light is scattering over the sensors
             # likely at a similar wavelength for the adjacent pixels
-            # colors that are closer in wavelength will have a similar 
-            # response to the light, so:
-            #   To find greens, look for the most similar diagonal
-            #   To find blue, find which of the remaining pixels is most similar 
+            # colors that are closer in camera sensor spectrum will have a similar 
+            # response to the light; based on this logic and the example spectra from
+            # the slides:
+            #   To find greens, look for the most similar entries on a diagonal
+            #   To find blue, find which of the remaining pixels is most similar
+            #       to the greens
 
+            # Take a snippet of 2x2 to evaluate the pattern
             pattern=img[:2, :2]
+            
+            # See which diagonal is more similar; these are greens
             if abs(pattern[0,0] - pattern[1,1]) < abs(pattern[0,1] - pattern[1,0]):
                 # Gs are [0,0], [1,1]
                 avg_g = (pattern[0,0] + pattern[1,1])/2
+
+                # Find which remaining pixel is more similar to greens, these are blue
                 if (abs(avg_g-pattern[0,1]) < abs(avg_g-pattern[1,0])):
                     pattern='gbrg' # B is at [0,1]
                 else:
                     pattern='grbg' # B is at [1,0]
             else: # Gs are [0,1], [1,0]
                 avg_g = (pattern[0,1] + pattern[1,0])/2
+
+                # Find which remaining pixel is more similar to greens, these are blue
                 if (abs(avg_g-pattern[0,0]) < abs(avg_g-pattern[1,1])):
                     pattern='bggr' # B is at [0,0]
                 else:
@@ -85,32 +94,82 @@ for wb_method in wb_methods:
         bayer_pattern = bayer_id(img)
 
 
-        # 1.1.e White Balancing
-        def white_balance_premosaic(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0]):
+        # # 1.1.e White Balancing
+        # Note: I implemented two forms; one where you white balance before demosaicing, and one after
+        #       They should yield the same results (e.g. the means and max stay the same), but the 
+        #       post-demosaicing white balance is faster and cleaner to read
+
+        def wb_pre_demosaic(img, pattern, method="gray", rgb_weights=[1.0, 1.0, 1.0], coordinates=[None]):
+            # To generalize to different bayer patterns, we store where the
+            #  colors appear in each pattern  as that temp and use those to
+            #  modify indexing (e.g. for grbg, Red is at [0,1], G starts at [0,0] and [1,1], 
+            #  B starts at [1,0]) and repeat every other pixel
+
             if   pattern=='grbg':   temp = [0,1,0,0,1,1,1,0]
             elif pattern=='gbrg':   temp = [1,0,0,0,1,1,0,1]
             elif pattern=='bggr':   temp = [1,1,1,0,0,1,0,0]
             elif pattern=='rggb':   temp = [0,0,1,0,0,1,1,1]
             [r1,r2,g1,g2,g3,g4,b1,b2] = temp
 
-
             if method=='gray':
+                # assume the image averages to a gray (e.g. r, g, and b have equal averages)
+                # and scale. 
                 r_mean=img[r1::2, r2::2].mean()
                 g_mean=(img[g1::2, g2::2].mean() + img[g3::2, g4::2].mean())/2
                 b_mean=img[b1::2, b2::2].mean()
 
-                rgb_weights=[r_mean, r_mean/g_mean, r_mean/b_mean]
+                mean_max=max(r_mean, g_mean, b_mean)
+                rgb_weights=[mean_max/r_mean, mean_max/g_mean, mean_max/b_mean]
+                # Note, it was not specified if gray=0.5, just that they are a gray 
+                # and therefore equal; if we want gray to equal 0.5, then we add an extra line
+                # rgb_weights=0.5/rgb_weights
                 print('White balance using gray world assumption')
             elif method=='white':
-                print('TODO')
-            #     TO DO 
-            #     Calculate Weights
+                max_brightness=0
+                # Go over each "pixel" (as it is not demosaiced, we look at each group of 4)
+            
+                for i in range(0,len(img.shape[0]-1), 2):
+                    for j in range(0,len(img.shape[1]-1), 2):
+                        r_curr=img[i+r1, j+r2]
+                        g1_curr=img[i+g1, j+g2]
+                        g2_curr=img[i+g3, j+g4]
+                        b_curr=img[i+b1, j+b2]
+                        
+                        # Get the sum of the pixel values to determine the brightness (but average greens as that pixel will be dimmer)
+                        curr_brightness=r_curr+(g1_curr+g2_curr)/2+b_curr > max_brightness
+                        if curr_brightness >= max_brightness:
+                            max_brightness=curr_brightness
+                            curr_max=[r_curr, max(g1_curr, g2_curr), b_curr]
+                    
+                rgb_weights=[1/curr_max[0], 1/curr_max[1], 1/curr_max[2]]
+
+                        
                 print('White balance using white world assumption')
-            elif method=='presets': # camera presets
+                #   Note: when discussing this in OH, it wasn't totally clear, so I went with the above implementation
+                #       (e.g. find what will become the brightest pixel in the scene and use that to rescale)
+                #   Other approaches discussed included just taking the max of each channel, however
+                #     those won't necessarily yield a single white pixel but the brightest instance of each channel
+                #     from across the image. If we want that implementation, uncomment the following:
+                #   rgb_weights=[1/img[r1::2, r2::2].max(), 1/max(img[g1::2, g2::2].max(), img[g3::2, g4::2].max()), 1/img[b1::2, b2::2].max()]
+            
+            elif method=='presets': # camera presets fed in as weights
                 print('White balance using presets')
+
+            elif method=='manual': # select a coordinate to treat as white
+                # Set the white balance to be the top corner of the bayer pattern
+                coordinates[0]-=(coordinates[0]%2)
+                coordinates[1]-=(coordinates[1]%2)
+
+                # Get the values from the bayer pattern of the selected pixel
+                r_curr=img[coordinates[0]+r1, coordinates[0]+r2]
+                g_curr=(img[coordinates[0]+g1, coordinates[0]+g2]+img[coordinates[0]+g3, coordinates[0]+g4])/2
+                b_curr=img[coordinates[0]+b1, coordinates[0]+b2]
+
+
+                rgb_weights=[1/r_curr, 1/g_curr, 1/b_curr]
+                print('White balance using manual selection')
                 
 
-            [r1,r2,g1,g2,g3,g4,b1,b2]  =temp
             img[r1::2, r2::2]*=rgb_weights[0]
             img[g1::2, g2::2]*=rgb_weights[1]
             img[g3::2, g4::2]*=rgb_weights[1] 
@@ -121,32 +180,31 @@ for wb_method in wb_methods:
 
             return img
 
-        def white_balance_postmosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0], coordinates=None):
-        
-
-            if method=='gray':
+        def wb_post_demosaic(img, method="gray", rgb_weights=[1.0, 1.0, 1.0], coordinates=None):
+            # Alternatively, we could white balance after demosaicing, which is cleaner
+            # and should yield similar results
+            if method=='gray': 
                 r_mean=img[:,:,0].mean()
                 g_mean=img[:,:,1].mean() 
                 b_mean=img[:,:,2].mean() 
-
-                rgb_weights=[r_mean, r_mean/g_mean, r_mean/b_mean]
+                max_mean=max(r_mean, g_mean, b_mean)
+                rgb_weights=[max_mean/r_mean, max_mean/g_mean, max_mean/b_mean]
                 print('White balance using gray world assumption')
-            elif method=='white':
-                if coordinates != None:
-                    white=img[coordinates[0], coordinates[1]]
-                else: 
-                    white=img[np.unravel_index(np.argmax(img.sum(axis=2)), img.shape[:2])]
-                
+            elif method=='white': # get the brightest pixel (sum each channel and compare)
+                white=img[np.unravel_index(np.argmax(img.sum(axis=2)), img.shape[:2])]
                 rgb_weights=[1/white[0], 1/white[1], 1/white[2]]
                 print('White balance using white world assumption')
-            elif method=='presets': # camera presets
+            elif method=='manual': # select a pixel manually that is white
+                white=img[coordinates[0], coordinates[1]]
+                rgb_weights=[1/white[0], 1/white[1], 1/white[2]]
+                print('White balance using manual selection')
+            elif method=='presets': # camera presets fed in as weights
                 print('White balance using presets')
                 
             img[:,:,0]*=rgb_weights[0]
             img[:,:,1]*=rgb_weights[1]
             img[:,:,2]*=rgb_weights[2]
-            # img=np.clip(img, 0, 1)
-
+            img=np.clip(img, 0, 1)
 
             return img
 
@@ -154,7 +212,10 @@ for wb_method in wb_methods:
 
 
         # 1.1.f Demosaicing
-        def channel_interp(array, threshold=0): # Interp2d was deprecated so followed this tutorial
+        def channel_interp(array, threshold=0): 
+            # Other interpolation functions (e.g. interpolate, interp2D) gave errors that too much of 
+            # the image was missing, so I implemented myself
+            # Interpolates when colors are below a threshold (e.g. data==-1)
             array[array<threshold] = np.nan
             for i in range(array.shape[0]):
                 for j in range(array.shape[1]):
@@ -177,42 +238,12 @@ for wb_method in wb_methods:
                         neighbor_avg/=neighbors
                         array[i,j]=neighbor_avg
                             
-            # v1=False
-            # if v1:
-            #     array[array<0] = np.nan
-            #     x = np.arange(0, array.shape[1])
-            #     y = np.arange(0, array.shape[0])
-
-            #     array = np.ma.masked_invalid(array)
-            #     xx, yy = np.meshgrid(x, y)
-
-            #     x1 = xx[~array.mask]
-            #     y1 = yy[~array.mask]
-            #     newarr = array[~array.mask]
-
-            #     GD1 = scipy.interpolate.griddata((x1, y1), newarr.ravel(),
-            #                             (xx, yy),
-            #                                 method='linear')
-            # else:
-            #     array[array<0] = np.nan
-            #     # Find non-NaN indices
-            #     x_indices, y_indices = np.where(~np.isnan(array))
-
-            #     # Extract non-NaN values
-            #     x = x_indices.astype(float)
-            #     y = y_indices.astype(float)
-            #     z = array[~np.isnan(array)]
-
-            #     # Define interpolation function using bilinear interpolation
-            #     interp_func = scipy.interpolate.interp2d(x, y, z, kind='linear')
-
-            #     # Create a meshgrid for all indices
-            #     x_grid, y_grid = np.meshgrid(np.arange(array.shape[0]), np.arange(array.shape[1]))
-
-            #     # Interpolate NaN values using bilinear interpolation
-            #     GD1 = interp_func(x_grid, y_grid)
-
             return array
+        
+        def bilinear_interp(array):
+                array=channel_interp(array, 0.0)
+                array=channel_interp(array, 0.0)
+                return array
 
         def demosaic(img, pattern):
             r_channel = np.full(img.shape, -1, img.dtype)
@@ -231,10 +262,7 @@ for wb_method in wb_methods:
             g_channel[g3::2, g4::2]=img[g3::2, g4::2]
             b_channel[b1::2, b2::2]=img[b1::2, b2::2]
 
-            def bilinear_interp(array):
-                array=channel_interp(array, 0.0)
-                array=channel_interp(array, 0.0)
-                return array
+            
 
 
             r_channel=bilinear_interp(r_channel)
@@ -255,7 +283,7 @@ for wb_method in wb_methods:
 
         img=np.load("../demosaiced.npy")
 
-        img=white_balance_postmosaic(img, method=wb_method, rgb_weights=[r_scale, g_scale, b_scale], coordinates=coordinate)
+        img=wb_post_demosaic(img, method=wb_method, rgb_weights=[r_scale, g_scale, b_scale], coordinates=coordinate)
 
 
 

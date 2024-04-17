@@ -1,0 +1,99 @@
+Start testing: Apr 08 05:25 Eastern Daylight Time
+----------------------------------------------------------
+1/6 Testing: run_test_imginfo
+1/6 Test: run_test_imginfo
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_imginfo" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_imginfo" start time: Apr 08 05:25 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   3.84 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_imginfo" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_imginfo" time elapsed: 00:00:03
+----------------------------------------------------------
+
+2/6 Testing: run_test_imgcmp
+2/6 Test: run_test_imgcmp
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_imgcmp" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_imgcmp" start time: Apr 08 05:26 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_imgcmp" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_imgcmp" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: run_test_1
+3/6 Test: run_test_1
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_1" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_1" start time: Apr 08 05:26 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_1" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: run_test_2
+4/6 Test: run_test_2
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_2" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_2" start time: Apr 08 05:26 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_2" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: run_test_3
+5/6 Test: run_test_3
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_3" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_3" start time: Apr 08 05:26 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_3" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: run_test_5
+6/6 Test: run_test_5
+Command: "C:/Windows/System32/bash.exe" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper" "C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper/src/app/../../test/bin/run_test_5" "-v"
+Directory: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app
+"run_test_5" start time: Apr 08 05:26 Eastern Daylight Time
+Output:
+----------------------------------------------------------
+/bin/bash: C:/Users/rcsch/OneDrive/Desktop/ISP_homework/ISP_hw/jasper_build/src/app/../../test/bin/wrapper: No such file or directory
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"run_test_5" end time: Apr 08 05:26 Eastern Daylight Time
+"run_test_5" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 08 05:26 Eastern Daylight Time
