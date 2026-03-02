@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.venv/
+data/test_outputs/
+
+# Large image data
+*.tiff
+*.tif
+data/Outputs/
+data/1.3_extra_after.png
