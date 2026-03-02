@@ -1,0 +1,22 @@
+{
+    "img_path": "data/baby.nef",
+    "output_dir": "data/Outputs",
+
+    "wb_methods": ["gray"],
+
+    "black": 0,
+    "white": 16383,
+    "r_scale": 1.628906,
+    "g_scale": 1.000000,
+    "b_scale": 1.386719,
+
+    "manual_coordinates": [
+        [937, 2559],
+        [190, 3279],
+        [420, 3658],
+        [1082, 2442],
+        [2214, 1360],
+        [1035, 1833]
+    ],
+    "selected_coordinate_index": -1
+}
